@@ -1,6 +1,6 @@
-﻿using AddressBook.Data.Models.Contact;
-using AddressBook.DTO.ViewModels;
-using AddressBook.Infrastructure.DBContext;
+﻿using AddressBook.Core.Models.ViewModels;
+using AddressBook.Data.Models.Contact;
+using AddressBook.Infrastructure.EFCore.DBContext;
 using AddressBook.Services.Contacts.Interfaces;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;

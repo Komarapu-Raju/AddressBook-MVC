@@ -1,14 +1,15 @@
-﻿using AddressBook.DTO.ViewModels;
-using AddressBook.Services.Contacts.Interfaces;
+﻿using AddressBook.Services.Contacts.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using AddressBook.Data.Models.Contact;
+using AddressBook.Core.Models.ViewModels;
 
 namespace AddressBook.Controllers
 {
     public class ContactController : Controller
     {
         private readonly IContactServices _contactServices;
+
         private readonly IMapper mapper;
 
         public ContactController(IContactServices contactServices, IMapper mapper)

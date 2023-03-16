@@ -1,4 +1,4 @@
-﻿namespace AddressBook.DTO.ViewModels
+﻿namespace AddressBook.Core.Models.ViewModels
 {
     public class ContactDetailsViewModel
     {

@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AddressBook.WebApplication"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AddressBook.Infrastructure", "..\AddressBook.Infrastructure\AddressBook.Infrastructure.csproj", "{764FBB58-6F51-41C7-A751-4A2B17BB1A1B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AddressBook.DTO", "..\AddressBook.DTO\AddressBook.DTO.csproj", "{8320AFC4-F980-4614-B34A-FE27600B9D4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AddressBook.Core.Models", "..\AddressBook.DTO\AddressBook.Core.Models.csproj", "{8320AFC4-F980-4614-B34A-FE27600B9D4F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AddressBook.Services", "..\AddressBook.Services\AddressBook.Services.csproj", "{9CBBBEDD-1E09-472C-9AD2-330C98242637}"
 EndProject

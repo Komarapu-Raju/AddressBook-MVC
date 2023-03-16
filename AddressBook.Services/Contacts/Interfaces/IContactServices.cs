@@ -1,5 +1,5 @@
-﻿using AddressBook.Data.Models.Contact;
-using AddressBook.DTO.ViewModels;
+﻿using AddressBook.Core.Models.ViewModels;
+using AddressBook.Data.Models.Contact;
 
 namespace AddressBook.Services.Contacts.Interfaces
 {

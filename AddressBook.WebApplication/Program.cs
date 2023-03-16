@@ -1,5 +1,5 @@
 using AddressBook.Helpers;
-using AddressBook.Infrastructure.DBContext;
+using AddressBook.Infrastructure.EFCore.DBContext;
 using AddressBook.Services.Contacts.Interfaces;
 using AddressBook.Services.Contacts.Services;
 using Microsoft.EntityFrameworkCore;
