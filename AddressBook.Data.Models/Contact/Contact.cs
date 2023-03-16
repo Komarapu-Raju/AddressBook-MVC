@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AddressBook.Data.Models.Contacts
+namespace AddressBook.Data.Models.Contact
 {
     public class Contact
     {

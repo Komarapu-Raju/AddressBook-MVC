@@ -1,4 +1,4 @@
-﻿using AddressBook.Data.Models.Contacts;
+﻿using AddressBook.Data.Models.Contact;
 using Microsoft.EntityFrameworkCore;
 
 namespace AddressBook.Infrastructure.DBContext

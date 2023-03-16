@@ -1,8 +1,8 @@
 ﻿using AddressBook.DTO.ViewModels;
-using AddressBook.Data.Models.Contacts;
 using AddressBook.Services.Contacts.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using AddressBook.Data.Models.Contact;
 
 namespace AddressBook.Controllers
 {
