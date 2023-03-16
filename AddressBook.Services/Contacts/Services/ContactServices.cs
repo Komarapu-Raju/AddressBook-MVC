@@ -9,50 +9,50 @@ namespace AddressBook.Services.Contacts.Services
 {
     public class ContactServices : IContactServices
     {
-        private readonly AddressBookDBContext _dbContext;
+        private readonly AddressBookDBContext _db;
 
         private readonly IMapper mapper;
 
-        public ContactServices(AddressBookDBContext dBContext, IMapper mapper)
+        public ContactServices(AddressBookDBContext db, IMapper mapper)
         {
             this.mapper = mapper;
-            this._dbContext = dBContext;
+            this._db = db;
         }
 
         public void AddContact(Contact newContact)
         {
-            this._dbContext.Contacts.Add(newContact);
-            this._dbContext.SaveChanges();
+            this._db.Contacts.Add(newContact);
+            this._db.SaveChanges();
         }
 
         public void UpdateContact(int id, Contact updatedContact)
         {
-            var existingContact = this._dbContext.Contacts.Find(id);
+            var existingContact = this._db.Contacts.Find(id);
 
             if (existingContact != null)
             {
-                this._dbContext.Entry(existingContact).State = EntityState.Detached;
+                this._db.Entry(existingContact).State = EntityState.Detached;
             }
 
-            this._dbContext.Contacts.Update(updatedContact);
-            this._dbContext.SaveChanges();
+            this._db.Contacts.Update(updatedContact);
+            this._db.SaveChanges();
         }
 
         public void DeleteContact(int id)
         {
-            var obj = this._dbContext.Contacts.Find(id);
-            this._dbContext.Contacts.Remove(obj);
-            this._dbContext.SaveChanges();
+            var obj = this._db.Contacts.Find(id);
+            this._db.Contacts.Remove(obj);
+            this._db.SaveChanges();
         }
 
         public ContactDetailsViewModel GetContactById(int id)
         {
-            return mapper.Map<ContactDetailsViewModel>(this._dbContext.Contacts.Find(id));
+            return mapper.Map<ContactDetailsViewModel>(this._db.Contacts.Find(id));
         }
 
         public List<ContactListViewModel> GetContactsList()
         {
-            return mapper.Map<List<ContactListViewModel>>(this._dbContext.Contacts.ToList());
+            return mapper.Map<List<ContactListViewModel>>(this._db.Contacts.ToList());
         }
     }
 }
