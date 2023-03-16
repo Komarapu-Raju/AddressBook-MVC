@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AddressBook.Domain\AddressBook.Data.Models.csproj" />
+    <ProjectReference Include="..\AddressBook.Data.Models\AddressBook.Data.Models.csproj" />
   </ItemGroup>
 
 </Project>
