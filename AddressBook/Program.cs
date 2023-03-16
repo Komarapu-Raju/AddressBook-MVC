@@ -1,6 +1,7 @@
 using AddressBook.DBContext;
 using AddressBook.Helpers;
 using AddressBook.Services;
+using AddressBook.Services.Contact.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

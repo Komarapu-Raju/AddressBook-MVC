@@ -4,7 +4,7 @@ using AddressBook.ViewModels;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 
-namespace AddressBook.Services
+namespace AddressBook.Services.Contact.Services
 {
     public class ContactServices : IContactServices
     {
