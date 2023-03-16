@@ -9,12 +9,12 @@ namespace AddressBook.ViewComponents
 
         public ContactListViewComponent(IContactServices contactServices)
         {
-            _contactServices = contactServices;
+            this._contactServices = contactServices;
         }
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            ViewData["contactList"] = _contactServices.GetContactsList();
+            ViewData["contactList"] = this._contactServices.GetContactsList();
             return await Task.FromResult((IViewComponentResult)View("ContactList"));
         }
     }

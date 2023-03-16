@@ -16,42 +16,42 @@ namespace AddressBook.Services.Contacts.Services
         public ContactServices(AddressBookDBContext dBContext, IMapper mapper)
         {
             this.mapper = mapper;
-            _dbContext = dBContext;
+            this._dbContext = dBContext;
         }
 
         public void AddContact(Contact newContact)
         {
-            _dbContext.Contacts.Add(newContact);
-            _dbContext.SaveChanges();
+            this._dbContext.Contacts.Add(newContact);
+            this._dbContext.SaveChanges();
         }
 
         public void UpdateContact(Contact updatedContact)
         {
-            var existingContact = _dbContext.Contacts.Find(updatedContact.Id);
+            var existingContact = this._dbContext.Contacts.Find(updatedContact.Id);
             if (existingContact != null)
             {
-                _dbContext.Entry(existingContact).State = EntityState.Detached;
+                this._dbContext.Entry(existingContact).State = EntityState.Detached;
             }
 
-            _dbContext.Contacts.Update(updatedContact);
-            _dbContext.SaveChanges();
+            this._dbContext.Contacts.Update(updatedContact);
+            this._dbContext.SaveChanges();
         }
 
         public void DeleteContact(int id)
         {
-            var obj = _dbContext.Contacts.Find(id);
-            _dbContext.Contacts.Remove(obj);
-            _dbContext.SaveChanges();
+            var obj = this._dbContext.Contacts.Find(id);
+            this._dbContext.Contacts.Remove(obj);
+            this._dbContext.SaveChanges();
         }
 
         public ContactDetailsViewModel GetContactById(int id)
         {
-            return mapper.Map<ContactDetailsViewModel>(_dbContext.Contacts.Find(id));
+            return mapper.Map<ContactDetailsViewModel>(this._dbContext.Contacts.Find(id));
         }
 
         public List<ContactListViewModel> GetContactsList()
         {
-            return mapper.Map<List<ContactListViewModel>>(_dbContext.Contacts.ToList());
+            return mapper.Map<List<ContactListViewModel>>(this._dbContext.Contacts.ToList());
         }
 
         public bool DoesContactExist(int id)

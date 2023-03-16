@@ -13,7 +13,7 @@ namespace AddressBook.Controllers
 
         public ContactController(IContactServices contactServices, IMapper mapper)
         {
-            _contactServices = contactServices;
+            this._contactServices = contactServices;
             this.mapper = mapper;
         }
 
@@ -24,7 +24,7 @@ namespace AddressBook.Controllers
 
         public IActionResult EditContact(int id)
         {
-            return View("ContactForm", mapper.Map<Contact>(_contactServices.GetContactById(id)));
+            return View("ContactForm", this.mapper.Map<Contact>(_contactServices.GetContactById(id)));
         }
 
         [HttpPost]
@@ -32,14 +32,14 @@ namespace AddressBook.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (_contactServices.DoesContactExist(contact.Id))
+                if (this._contactServices.DoesContactExist(contact.Id))
                 {
-                    _contactServices.UpdateContact(contact);
+                    this._contactServices.UpdateContact(contact);
                     return RedirectToAction("ContactDetails", new { contact.Id });
                 }
 
-                _contactServices.AddContact(contact);
-                return RedirectToAction("ContactDetails", new { _contactServices.GetContactsList().Last<ContactListViewModel>().Id });
+                this._contactServices.AddContact(contact);
+                return RedirectToAction("ContactDetails", new { this._contactServices.GetContactsList().Last<ContactListViewModel>().Id });
             }
 
             return View(contact);
@@ -47,18 +47,18 @@ namespace AddressBook.Controllers
 
         public IActionResult ContactDetails(int id)
         {
-            return View(_contactServices.GetContactById(id));
+            return View(this._contactServices.GetContactById(id));
         }
 
         public IActionResult DeleteContact(int id)
         {
-            _contactServices.DeleteContact(id);
+            this._contactServices.DeleteContact(id);
             return RedirectToAction("Index");
         }
 
         public IActionResult Index()
         {
-            ContactListViewModel? contact = _contactServices.GetContactsList().FirstOrDefault();
+            ContactListViewModel? contact = this._contactServices.GetContactsList().FirstOrDefault();
 
             if (contact != null)
             {
