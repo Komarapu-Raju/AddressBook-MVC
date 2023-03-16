@@ -1,7 +1,7 @@
-﻿using AddressBook.Models;
-using AddressBook.ViewModels;
+﻿using AddressBook.Data.Models.Contacts;
+using AddressBook.DTO.ViewModels;
 
-namespace AddressBook.Services
+namespace AddressBook.Services.Contacts.Interfaces
 {
     public interface IContactServices
     {

@@ -1,10 +1,11 @@
-﻿using AddressBook.DBContext;
-using AddressBook.Models;
-using AddressBook.ViewModels;
+﻿using AddressBook.Data.Models.Contacts;
+using AddressBook.DTO.ViewModels;
+using AddressBook.Infrastructure.DBContext;
+using AddressBook.Services.Contacts.Interfaces;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 
-namespace AddressBook.Services.Contact.Services
+namespace AddressBook.Services.Contacts.Services
 {
     public class ContactServices : IContactServices
     {

@@ -1,6 +1,6 @@
-﻿using AddressBook.Models;
-using AddressBook.Services;
-using AddressBook.ViewModels;
+﻿using AddressBook.DTO.ViewModels;
+using AddressBook.Data.Models.Contacts;
+using AddressBook.Services.Contacts.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 

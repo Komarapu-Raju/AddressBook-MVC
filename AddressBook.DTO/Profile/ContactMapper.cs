@@ -1,5 +1,5 @@
-﻿using AddressBook.Models;
-using AddressBook.ViewModels;
+﻿using AddressBook.Data.Models.Contacts;
+using AddressBook.DTO.ViewModels;
 using AutoMapper;
 
 namespace AddressBook.Helpers

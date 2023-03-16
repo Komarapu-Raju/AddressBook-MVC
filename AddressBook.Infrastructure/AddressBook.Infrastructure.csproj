@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AddressBook.Domain\AddressBook.Domain.csproj" />
+    <ProjectReference Include="..\AddressBook.Domain\AddressBook.Data.Models.csproj" />
   </ItemGroup>
 
 </Project>

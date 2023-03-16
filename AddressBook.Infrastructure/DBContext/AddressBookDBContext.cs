@@ -1,7 +1,7 @@
-﻿using AddressBook.Models;
+﻿using AddressBook.Data.Models.Contacts;
 using Microsoft.EntityFrameworkCore;
 
-namespace AddressBook.DBContext
+namespace AddressBook.Infrastructure.DBContext
 {
     public class AddressBookDBContext : DbContext
     {

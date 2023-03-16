@@ -1,4 +1,4 @@
-﻿using AddressBook.Services;
+﻿using AddressBook.Services.Contacts.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AddressBook.ViewComponents
