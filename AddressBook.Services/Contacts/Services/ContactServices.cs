@@ -25,9 +25,10 @@ namespace AddressBook.Services.Contacts.Services
             this._dbContext.SaveChanges();
         }
 
-        public void UpdateContact(Contact updatedContact)
+        public void UpdateContact(int id, Contact updatedContact)
         {
-            var existingContact = this._dbContext.Contacts.Find(updatedContact.Id);
+            var existingContact = this._dbContext.Contacts.Find(id);
+
             if (existingContact != null)
             {
                 this._dbContext.Entry(existingContact).State = EntityState.Detached;
@@ -52,11 +53,6 @@ namespace AddressBook.Services.Contacts.Services
         public List<ContactListViewModel> GetContactsList()
         {
             return mapper.Map<List<ContactListViewModel>>(this._dbContext.Contacts.ToList());
-        }
-
-        public bool DoesContactExist(int id)
-        {
-            return GetContactsList().Any(contact => contact.Id == id);
         }
     }
 }

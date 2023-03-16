@@ -32,9 +32,9 @@ namespace AddressBook.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (this._contactServices.DoesContactExist(contact.Id))
+                if (this._contactServices.GetContactById(contact.Id) != null)
                 {
-                    this._contactServices.UpdateContact(contact);
+                    this._contactServices.UpdateContact(contact.Id,contact);
                     return RedirectToAction("ContactDetails", new { contact.Id });
                 }
 
