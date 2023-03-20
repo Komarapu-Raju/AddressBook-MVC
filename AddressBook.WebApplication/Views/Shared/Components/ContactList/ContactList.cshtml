@@ -2,17 +2,25 @@
     var contactList = ViewData["contactList"] as List<ContactListViewModel>;
 }
 
-<div class="contact-list-container">
-    <div class="contact-list" id="contactList">
-        @foreach (ContactListViewModel contact in contactList)
-        {
-            <a class="contact-item" asp-controller="Contact" asp-action="ContactDetails" asp-route-id="@contact.Id">
-                <div class="contact-list-item" id="@contact.Id">
-                    <h2>@contact.Name</h2>
-                    <p>@contact.Email</p>
-                    <p>@contact.Mobile </p>
-                </div>
-            </a>
-        }
-    </div>
+
+<div class="contact-list" id="contactList">
+    @foreach (ContactListViewModel contact in contactList)
+    {
+        <a class="contact-item" asp-controller="Contact" asp-action="ContactDetails" asp-route-id="@contact.Id">
+            <div class="contact-list-item" id="@contact.Id">
+                <h2>
+                    @contact.Name<span>
+                        @if (@contact.IsFavorite)
+                        {
+                            <i class="fa-solid fa-star" style="scale:0.5; float:right;"></i>
+                        }
+                    </span>
+                </h2>
+                <p>@contact.Email</p>
+                <p>@contact.Mobile </p>
+
+
+            </div>
+        </a>
+    }
 </div>

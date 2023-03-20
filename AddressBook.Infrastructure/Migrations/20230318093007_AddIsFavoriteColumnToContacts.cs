@@ -2,10 +2,10 @@
 
 #nullable disable
 
-namespace AddressBook.Migrations
+namespace AddressBook.WebApplication.Migrations
 {
     /// <inheritdoc />
-    public partial class addContactToDataBase : Migration
+    public partial class AddIsFavoriteColumnToContacts : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -21,7 +21,8 @@ namespace AddressBook.Migrations
                     Mobile = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Landline = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Website = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsFavorite = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {

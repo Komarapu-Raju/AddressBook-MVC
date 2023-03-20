@@ -29,14 +29,14 @@ namespace AddressBook.Controllers
         }
 
         [HttpPost]
-        public IActionResult ContactForm(Contact contact)
+        public IActionResult ContactForm(int id, Contact contact)
         {
             if (ModelState.IsValid)
             {
-                if (this._contactServices.GetContactById(contact.Id) != null)
+                if (this._contactServices.GetContactById(id) != null)
                 {
-                    this._contactServices.UpdateContact(contact.Id,contact);
-                    return RedirectToAction("ContactDetails", new { contact.Id });
+                    this._contactServices.UpdateContact(id,contact);
+                    return RedirectToAction("ContactDetails", new { id });
                 }
 
                 this._contactServices.AddContact(contact);
@@ -57,6 +57,12 @@ namespace AddressBook.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult FavoriteContact(int id)
+        {
+            _contactServices.ToggleFavorite(id);
+            return RedirectToAction("ContactDetails", new { id });
+        }
+
         public IActionResult Index()
         {
             ContactListViewModel? contact = this._contactServices.GetContactsList().FirstOrDefault();
@@ -72,6 +78,18 @@ namespace AddressBook.Controllers
         public IActionResult CloseForm()
         {
             return RedirectToAction("Index");
+        }
+
+        public IActionResult ContactList()
+        {
+            ViewData["contactList"] = this._contactServices.GetContactsList();
+            return ViewComponent("ContactList");
+        }
+
+        public IActionResult FavoriteContactList()
+        {
+            ViewData["contactList"] = this._contactServices.GetContactsList();
+            return ViewComponent("FavoriteContactList");
         }
     }
 }

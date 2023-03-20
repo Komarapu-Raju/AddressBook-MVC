@@ -3,16 +3,22 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.title = "Contact Form";
+    var routeId = 0;
 }
 
 <div class="modal-bg-block" id="modalBackgroundBlock">
     <div class="contact-form-modal" id="contactFormContainer">
         <div class="modal-content" id="modalContent">
+            @if (Model != null && Model.Id != 0)
+            {
+                routeId = Model.Id;
+            }
             <span class="close-btn" id="close"><a href="/Contact/CloseForm" style="text-decoration:none">&times;</a></span>
-            <form class="contact-form" id="contactForm" asp-controller="Contact" asp-action="ContactForm" method="post">
+            <form class="contact-form" id="contactForm" asp-controller="Contact" asp-action="ContactForm" asp-route-id="@routeId" method="post">
                 @if (Model != null && Model.Id != 0)
                 {
                     <input type="hidden" asp-for="Id">
+                    <input type="hidden" asp-for="IsFavorite">
                 }
                 <div class="form-field">
                     <label asp-for="Name">Name<span asp-validation-for="Name" class="mandatory-field"></span></label>

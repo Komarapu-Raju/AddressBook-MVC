@@ -11,6 +11,23 @@
         <div class="contact-details-menu" id="contactDetailsOptions">
             <a href="/Contact/EditContact/@Model.Id"><span id="editContact"><img class="edit-icon" src="~/images/pen.png"><p>Edit</p></span></a>
             <a href="/Contact/DeleteContact/@Model.Id"><span id="deleteContact"><img class="delete-icon" src="~/images/trash.png"><p>Delete</p></span></a>
+            @if (Model.IsFavorite)
+            {
+                <span id="favoriteContact">
+                    <a href="/Contact/FavoriteContact/@Model.Id">
+                        <p><i class="fa-regular fa-star"></i> UnFavorite</p>
+                    </a>
+                </span>
+            }
+            else
+            {
+                <span id="favoriteContact">
+                    <a href="/Contact/FavoriteContact/@Model.Id">
+                        <p><i class="fa-solid fa-star"></i> Favorite</p>
+                    </a>
+                </span>
+            }
+
         </div>
     </div>
     <span class="email-details"><p>Email: @Model.Email </p><p id="contactEmail"></p></span>
@@ -25,5 +42,6 @@
 @section scripts{
     <script>
         $('#' + @Model.Id).css('background-color', "#CEE7F2");
+        $('.' + @Model.Id).css('background-color', "#CEE7F2");
     </script>
     }

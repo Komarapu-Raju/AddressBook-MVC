@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace AddressBook.Migrations
+namespace AddressBook.WebApplication.Migrations
 {
     [DbContext(typeof(AddressBookDBContext))]
-    [Migration("20230315104655_addContactToDataBase")]
-    partial class addContactToDataBase
+    [Migration("20230318093007_AddIsFavoriteColumnToContacts")]
+    partial class AddIsFavoriteColumnToContacts
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,7 @@ namespace AddressBook.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("AddressBook.Models.Contact", b =>
+            modelBuilder.Entity("AddressBook.Data.Models.Contact.Contact", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -38,6 +38,9 @@ namespace AddressBook.Migrations
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsFavorite")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Landline")
                         .HasColumnType("nvarchar(max)");

@@ -15,7 +15,7 @@ builder.Services.AddAutoMapper(typeof(ContactMapper).Assembly);
 
 builder.Services.AddDbContext<AddressBookDBContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("LocalDBConnection"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("LocalDBConnection"), b => b.MigrationsAssembly("AddressBook.WebApplication"));
 });
 
 var app = builder.Build();

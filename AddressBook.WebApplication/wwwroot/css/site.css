@@ -133,7 +133,7 @@ a {
 }
 
 .contact-details-container {
-    width: 30.5%;
+    width: 35%;
     display: flex;
     padding-left: 70px;
     font-family: 'Noto Sans', sans-serif;
@@ -160,7 +160,7 @@ a {
 }
 
 .contact-details-menu {
-    width: 32%;
+    width: 47%;
     display: flex;
     justify-content: space-between;
 }

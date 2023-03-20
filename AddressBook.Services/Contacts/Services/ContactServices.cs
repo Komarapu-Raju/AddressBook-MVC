@@ -25,15 +25,20 @@ namespace AddressBook.Services.Contacts.Services
             this._db.SaveChanges();
         }
 
+        public void ToggleFavorite(int id)
+        {
+            Contact contact = this._db.Contacts.Find(id);
+            if (contact != null)
+            {
+                contact.IsFavorite ^= true;
+            }
+            this.UpdateContact(id, contact);
+        }
+
         public void UpdateContact(int id, Contact updatedContact)
         {
             var existingContact = this._db.Contacts.Find(id);
-
-            if (existingContact != null)
-            {
-                this._db.Entry(existingContact).State = EntityState.Detached;
-            }
-
+            this._db.Contacts.Entry(existingContact).State = EntityState.Detached;
             this._db.Contacts.Update(updatedContact);
             this._db.SaveChanges();
         }

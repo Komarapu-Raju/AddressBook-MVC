@@ -14,5 +14,7 @@ namespace AddressBook.Services.Contacts.Interfaces
         ContactDetailsViewModel GetContactById(int id);
 
         List<ContactListViewModel> GetContactsList();
+
+        void ToggleFavorite(int id);
     }
 }

@@ -2,12 +2,10 @@
 using AddressBook.Infrastructure.EFCore.DBContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace AddressBook.Migrations
+namespace AddressBook.WebApplication.Migrations
 {
     [DbContext(typeof(AddressBookDBContext))]
     partial class AddressBookDBContextModelSnapshot : ModelSnapshot
@@ -21,7 +19,7 @@ namespace AddressBook.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("AddressBook.Models.Contact", b =>
+            modelBuilder.Entity("AddressBook.Data.Models.Contact.Contact", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -35,6 +33,9 @@ namespace AddressBook.Migrations
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsFavorite")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Landline")
                         .HasColumnType("nvarchar(max)");

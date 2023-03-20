@@ -23,5 +23,7 @@ namespace AddressBook.Data.Models.Contact
         public string? Website { get; set; }
 
         public string? Address { get; set; }
+
+        public bool IsFavorite { get; set; }
     }
 }
